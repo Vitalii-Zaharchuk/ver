@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Dialog.module.css'
 import {addDialogActionCreator, updateNewDialogTextActionCreator} from '../../../Redux/messages-reducer' 
+import Names from '../Names/Names';
 let Dialog = (props) =>{
 
    
@@ -21,12 +22,14 @@ let Dialog = (props) =>{
         <div to={'/dialog/' + props.id}>{props.dialog}</div>
         )
     }
-    let dialogElement = props.dialogData.
+    let dialogElement = props.messagePage.dialogData.
     map(dialog =><DialogItem dialog={dialog.dialog} id={dialog.id}/>)
     return(
+        
         <div className={s.dialog}>
+            <Names messagePage={props.messagePage}/>
                {dialogElement}
-            <textarea ref={newDialogElement} onChange={onDialogChange} value={props.newDialogText}></textarea>
+            <textarea ref={newDialogElement} onChange={onDialogChange} value={props.messagePage.newDialogText}></textarea>
             <button onClick={addDialog}>Send</button>
                 
 

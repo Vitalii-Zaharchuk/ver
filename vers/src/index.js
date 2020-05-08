@@ -3,23 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import {  BrowserRouter } from 'react-router-dom';
 import store  from './Redux/redux-store';
-import { addPostActionCreator, updateNewPostTextActionCreator} from './Redux/profile-reducer'
-import {addDialogActionCreator, updateNewDialogTextActionCreator} from './Redux/messages-reducer' 
+import { Provider } from 'react-redux';
+
 
 export let rerenderEntireTree = (state) =>{
   ReactDOM.render(
     <React.StrictMode>
-      <App 
-      store={store}
-      state={state}
-      dispatch={store.dispatch.bind(store)}
-      addPostActionCreator={addPostActionCreator}
-      updateNewPostTextActionCreato={updateNewPostTextActionCreator}
-      addDialogActionCreator={addDialogActionCreator}
-      updateNewDialogTextActionCreator={updateNewDialogTextActionCreator}
-      />
+      <BrowserRouter>
+      <Provider store={store}>
+          <App  />
+      </Provider>    
+      </BrowserRouter>    
     </React.StrictMode>,
     document.getElementById('root')
   );

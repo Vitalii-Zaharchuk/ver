@@ -2,30 +2,25 @@ import React from 'react';
 
 import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../Redux/profile-reducer';
 import Mypost from './Mypost'
+import { connect } from 'react-redux';
+import { updateNewDialogTextActionCreator } from '../../../Redux/messages-reducer';
 
-let MyPostContainer = (props) => {
-   let state = props.store.getState();
-   
-    let onPostChange = (text) =>{
-        let action = updateNewPostTextActionCreator(text)
-        props.store.dispatch(action);
+
+let mapStateToProps = (state) =>{
+    return{
+        profilePage: state.profilePage
     }
-    let addPost = () =>{
-        
-        props.store.dispatch(addPostActionCreator());
-    }
-    
-    
-    
-    
-    return (
-        <Mypost 
-        newPostText={state.profilePage.newPostText}
-        postData={state.profilePage.postData}
-        addPost={addPost}
-        updateNewPostTextActionCreator={onPostChange}/>
-    )
-        
-    
 }
+let mapDispatchToProps = (dispatch) =>{
+    return{
+        updateNewPostTextActionCreator:(text) =>{
+            let action = updateNewPostTextActionCreator(text)
+            dispatch(action)
+        },
+        addPost:() =>{
+            dispatch(addPostActionCreator());
+        }
+    }
+}
+let MyPostContainer = connect(mapStateToProps, mapDispatchToProps )(Mypost);
 export default MyPostContainer;

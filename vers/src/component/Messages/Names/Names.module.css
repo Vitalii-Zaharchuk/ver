@@ -1,6 +1,8 @@
 .names{
     font-size: 25px; 
     line-height: 3;
+    float: left;
+    margin-right: 80px;
     
 }
 .names a{

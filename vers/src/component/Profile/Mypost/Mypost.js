@@ -20,12 +20,12 @@ let Mypost = (props) => {
         <div to={'/post/' + props.id}>{props.post}</div>
         )
     }
-    let postElement = props.postData.
+    let postElement = props.profilePage.postData.
     map(post=><PostItem post={post.post} id={post.id}/>)
     return (   
         <div className={s.mypost}>
             <p>My post</p>
-            <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText}></textarea>
+            <textarea ref={newPostElement} onChange={onPostChange} value={props.profilePage.newPostText}></textarea>
             <button onClick={addPost}>Send</button>
             <div className={s.post}>
                 {postElement}

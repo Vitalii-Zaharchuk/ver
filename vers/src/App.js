@@ -5,7 +5,7 @@ import Header from './component/Header/Header';
 import Navbar from './component/Navbar/Navbar';
 import Profile from './component/Profile/Profile';
 import Messages from './component/Messages/Messages';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 
@@ -13,7 +13,6 @@ function App(props) {
   
   return (
     
-    <BrowserRouter>
     <div className="App">
       <Header/>
       <div className='info'>
@@ -29,7 +28,7 @@ function App(props) {
         />} />
       </div>
     </div>
-    </BrowserRouter>
+    
   );
 }
 
