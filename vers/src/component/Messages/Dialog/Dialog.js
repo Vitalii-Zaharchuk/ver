@@ -6,12 +6,12 @@ let Dialog = (props) =>{
    
     let onDialogChange= () =>{
         let text = newDialogElement.current.value;
-        let action = updateNewDialogTextActionCreator(text)
-        props.dispatch(action);
+        
+        props.updateNewDialogTextActionCreator(text);
     }
     let addDialog = () =>{
        
-        props.dispatch(addDialogActionCreator());
+        props.addDialog();
     }
     let newDialogElement = React.createRef();
 

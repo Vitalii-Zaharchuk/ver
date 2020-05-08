@@ -25,10 +25,7 @@ function App(props) {
         
         />} />
         <Route path='/messages' render={() => <Messages
-        addDialogActionCreator={props.addDialogActionCreator}
-        updateNewDialogTextActionCreator={props.updateNewDialogTextActionCreator}
-        dispatch={props.dispatch}
-         messagePage={props.state.messagePage}
+        store={props.store}
         />} />
       </div>
     </div>
