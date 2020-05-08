@@ -1,0 +1,10 @@
+.names{
+    font-size: 25px; 
+    line-height: 3;
+    
+}
+.names a{
+    display: block;
+    text-decoration: none;
+    color: black;
+}

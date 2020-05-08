@@ -4,14 +4,60 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import store  from './Redux/redux-store';
+import { addPostActionCreator, updateNewPostTextActionCreator} from './Redux/profile-reducer'
+import {addDialogActionCreator, updateNewDialogTextActionCreator} from './Redux/messages-reducer' 
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+export let rerenderEntireTree = (state) =>{
+  ReactDOM.render(
+    <React.StrictMode>
+      <App 
+      store={store}
+      state={state}
+      dispatch={store.dispatch.bind(store)}
+      addPostActionCreator={addPostActionCreator}
+      updateNewPostTextActionCreato={updateNewPostTextActionCreator}
+      addDialogActionCreator={addDialogActionCreator}
+      updateNewDialogTextActionCreator={updateNewDialogTextActionCreator}
+      />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+
+}
+
+rerenderEntireTree(store.getState());
+store.subscribe(()=>{
+  let state = store.getState();
+  rerenderEntireTree(state)
+})
+
 serviceWorker.unregister();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
