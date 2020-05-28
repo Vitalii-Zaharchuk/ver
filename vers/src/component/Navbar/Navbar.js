@@ -9,6 +9,7 @@ let Navbar =() =>{
             <NavLink to='/news'>News</NavLink>
             <NavLink to='/music'>Music</NavLink>
             <NavLink to='/settings'>Settings</NavLink>
+            <NavLink to='/users'>Users</NavLink>
            
             
         </div>

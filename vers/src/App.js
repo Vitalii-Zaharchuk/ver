@@ -7,6 +7,8 @@ import Profile from './component/Profile/Profile';
 import Messages from './component/Messages/Messages';
 import { Route } from 'react-router-dom';
 
+import UsersContainer from './component/Users/UsersContainer';
+
 
 
 function App(props) {
@@ -26,6 +28,7 @@ function App(props) {
         <Route path='/messages' render={() => <Messages
         store={props.store}
         />} />
+        <Route path='/users' render={() =><UsersContainer/>}/>
       </div>
     </div>
     

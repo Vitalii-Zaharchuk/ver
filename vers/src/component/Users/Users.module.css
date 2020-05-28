@@ -1,0 +1,41 @@
+.users{
+    margin-left: 100px;
+    display: flex;
+    margin-top: 50px;
+    border: 2px solid green;
+    border-radius: 20px;
+    
+
+}
+.ava{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.ava img{
+    width: 100px;
+    height: 100px;
+   margin-top: 20px;
+    
+    border: 0px solid black;
+    border-radius: 30px;
+    display: block;
+}
+.ava button{
+    width: 70px;
+    height: 30px;
+    margin-top: 15px;
+    border:1px solid green;
+    border-radius: 30px;
+}
+.about{
+    display: flex;
+    margin-top: 20px;
+    
+}
+.name{
+    margin-left: 120px;
+}
+.local{
+    margin-left:200px ;
+    margin-right: 20px;
+}
