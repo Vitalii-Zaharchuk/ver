@@ -1,10 +1,15 @@
 const FOLLOW_AC = 'FOLLOWAC';
 const UNFOLLOW_AC = 'UNFOLLOWAC'
 const SET_USERSAC = 'SETUSERSAC'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 let initialState ={
     users:[
         
-    ]
+    ],
+    pageSize: 5,
+    totalUsersCount: 25,
+    currentPage:1
 }
 const usersReducer = (state= initialState,action) =>{
     switch (action.type){
@@ -32,7 +37,13 @@ const usersReducer = (state= initialState,action) =>{
                 })
             }
          case SET_USERSAC:{
-             return{...state,users:[...state.users,...action.users]}  
+             return{...state,users:action.users}  
+         }
+         case SET_CURRENT_PAGE:{
+             return{...state,currentPage:action.currentPage}
+         }
+         case SET_TOTAL_USERS_COUNT:{
+             return{...state, totalUsersCount:action.count}
          }
         default:
             return state;  
@@ -49,5 +60,8 @@ export let UNFOLLOWAC = (userId) =>{
     }
 }
 
+
 export let SETUSERSAC = (users) =>({type:'SETUSERSAC',users})
+export let setCurrentPageAC = (currentPage) =>({type:'SET_CURRENT_PAGE',currentPage})
+export let setUsersTotalCountAC = (totalUsersCount) =>({type: 'SET_TOTAL_USERS_COUNT', count:totalUsersCount})
 export default usersReducer;
